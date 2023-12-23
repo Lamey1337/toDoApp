@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo Tasks</title>
+    <style>
+        .taskbox {
+            border: 2px solid #333;
+            width: 10em;
+        }
+    </style>
+</head>
+<body>
+    <form action="", method="post">
+        {% csrf_token %}
+        {{ form.description }}
+        <input type="submit" value="Add task">
+    </form>
+    <br>
+    {% for task in tasks %}
+    <div class="taskbox">
+        <a href="{% url "edit" pk=task.id %}">Edit</a>
+        <a href="{% url "delete" pk=task.id %}">Delete</a>
+        {% if not task.complete %}
+        <p>{{ task.description }}</p>
+        {% else %}
+        <strike>{{ task.description }}</strike>
+        {% endif %}
+    </div>
+    {% endfor %}
+
+
+
+
+    
+</body>
+</html>

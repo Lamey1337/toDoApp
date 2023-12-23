@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Delete</title>
+</head>
+<body>
+    <form action="", method="post">
+        {% csrf_token %}
+        <p>Do you really want to delete "{{ task.description }}"?</p>
+        <a href="{% url "index" %}">Get back</a>
+        <input type="submit" value="Confirm">
+    </form>
+</body>
+</html>
